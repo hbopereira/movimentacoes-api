@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.teste.base.BaseEntity;
 import com.teste.cliente.Cliente;
+import com.teste.container.Conteiner;
 import com.teste.enums.TipoMovimentacao;
 
 import jakarta.persistence.Entity;
@@ -20,8 +21,8 @@ import jakarta.persistence.TemporalType;
 public class Movimentacao extends BaseEntity {
 
 	@OneToOne
-	@JoinColumn(name = "cliente_cod")
-	private Cliente cliente;
+	@JoinColumn(name = "conteiner_cod")
+	private Conteiner conteiner;
 
 	@Enumerated(EnumType.STRING)
 	private TipoMovimentacao tipo;
@@ -36,12 +37,12 @@ public class Movimentacao extends BaseEntity {
 
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public Conteiner getConteiner() {
+		return conteiner;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setConteiner(Conteiner conteiner) {
+		this.conteiner = conteiner;
 	}
 
 	public TipoMovimentacao getTipo() {
@@ -67,6 +68,5 @@ public class Movimentacao extends BaseEntity {
 	public void setDataHoraFim(Date dataHoraFim) {
 		this.dataHoraFim = dataHoraFim;
 	}
-	
-	
+
 }
