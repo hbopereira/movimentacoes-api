@@ -1,6 +1,7 @@
 package com.teste.container;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,10 @@ public class ConteinerService extends BaseService<Conteiner, ConteinerRepository
 	private ConteinerRepository conteinerRepository;
 
 	public void salvarContainer(Conteiner container) {
-		// conteinerRepository.findAll().forEach();
-		List<Conteiner> lista = conteinerRepository.findAll();
-		for (Conteiner c : lista) {
-			if (c.getNumero().equals(container.getNumero())) {
-				throw new RuntimeException("não pode salvar um container com o mesmo numero para mais de um cliente");
-			}
+		Optional<Conteiner> cont = conteinerRepository.findAll().stream()
+				.filter(c -> c.getNumero().equals(container.getNumero())).findFirst();
+		if (!cont.isEmpty()) {
+			throw new RuntimeException("não pode salvar um container com o mesmo numero para mais de um cliente");
 		}
 		conteinerRepository.save(container);
 	}
