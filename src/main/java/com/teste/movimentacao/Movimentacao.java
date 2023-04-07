@@ -3,10 +3,8 @@ package com.teste.movimentacao;
 import java.util.Date;
 
 import com.teste.base.BaseEntity;
-import com.teste.cliente.Cliente;
 import com.teste.container.Conteiner;
 import com.teste.enums.TipoMovimentacao;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

@@ -21,4 +21,8 @@ public class MovimentacaoService extends BaseService<Movimentacao, MovimentacaoR
 		}
 
 	}
+	
+	public List<Movimentacao> listarMovimentacoesAgrupadosPorClienteETipoMovimentacao(){
+		return null;
+	}
 }
