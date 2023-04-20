@@ -33,7 +33,9 @@ public class MovimentacaoService extends BaseService<Movimentacao, MovimentacaoR
 
 		Map<String, Object> mapa = new HashMap<>();
 		for (MovimentacaoResumida mov : movimentacoes) {
-			movimentacao = Optional.of(mov);
+			if (movimentacao.isEmpty()) { // adicionar o valor uma unica vez para o objeto movimentacao
+				movimentacao = Optional.of(mov);
+			}
 			mapa.put(mov.getCod().toString(), mov);
 		}
 		if (movimentacao.isPresent()) {
