@@ -1,10 +1,13 @@
 package com.teste.movimentacao;
 
 import java.util.Date;
+import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.teste.base.BaseEntity;
 import com.teste.container.Conteiner;
 import com.teste.enums.TipoMovimentacao;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -23,13 +26,14 @@ public class Movimentacao extends BaseEntity {
 	private Conteiner conteiner;
 
 	@Enumerated(EnumType.STRING)
-	private TipoMovimentacao tipo;
+	private TipoMovimentacao tipom;
 
 	@Temporal(TemporalType.DATE)
-	private Date dataHoraInicio;
+	private Date datahi;
 
 	@Temporal(TemporalType.DATE)
-	private Date dataHoraFim;
+	private Date datahf;
+	
 
 	public Movimentacao() {
 
@@ -43,28 +47,27 @@ public class Movimentacao extends BaseEntity {
 		this.conteiner = conteiner;
 	}
 
-	public TipoMovimentacao getTipo() {
-		return tipo;
+	public TipoMovimentacao getTipom() {
+		return tipom;
 	}
 
-	public void setTipo(TipoMovimentacao tipo) {
-		this.tipo = tipo;
+	public void setTipom(TipoMovimentacao tipom) {
+		this.tipom = tipom;
 	}
 
-	public Date getDataHoraInicio() {
-		return dataHoraInicio;
+	public Date getDatahi() {
+		return datahi;
 	}
 
-	public void setDataHoraInicio(Date dataHoraInicio) {
-		this.dataHoraInicio = dataHoraInicio;
+	public void setDatahi(Date datahi) {
+		this.datahi = datahi;
 	}
 
-	public Date getDataHoraFim() {
-		return dataHoraFim;
+	public Date getDatahf() {
+		return datahf;
 	}
 
-	public void setDataHoraFim(Date dataHoraFim) {
-		this.dataHoraFim = dataHoraFim;
+	public void setDatahf(Date datahf) {
+		this.datahf = datahf;
 	}
-
 }

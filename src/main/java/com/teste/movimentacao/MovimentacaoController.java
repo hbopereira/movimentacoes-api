@@ -1,6 +1,7 @@
 package com.teste.movimentacao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.teste.base.BaseController;
+import com.teste.resumo.MovimentacaoResumida;
 
 @RestController
 @RequestMapping("/api/movimentacoes")
@@ -35,8 +37,8 @@ public class MovimentacaoController extends BaseController<Movimentacao, Movimen
 	}
 
 	@GetMapping(value = "/listarMovimentacoesAgrupadosPorClienteETipoMovimentacao")
-	public List<Movimentacao> listarMovimentacoesAgrupadosPorClienteETipoMovimentacao() {
-		return movimentacaoRepository.listarMovimentacoesAgrupadosPorClienteETipoMovimentacao();
+	public Map<String, Object> listarMovimentacoesAgrupadosPorClienteETipoMovimentacao() {
+		return movimentacaoService.listarMovimentacoesAgrupadosPorClienteETipoMovimentacao();
 	}
 	
 	@GetMapping(value = "/listarMovimentacoesPorCliente")
