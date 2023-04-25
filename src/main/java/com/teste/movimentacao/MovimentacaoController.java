@@ -41,8 +41,8 @@ public class MovimentacaoController extends BaseController<Movimentacao, Movimen
 		return movimentacaoService.listarMovimentacoesAgrupadosPorClienteETipoMovimentacao();
 	}
 	
-	/*@GetMapping(value = "/listarMovimentacoesPorCliente")
+	@GetMapping(value = "/listarMovimentacoesPorCliente")
 	public List<Movimentacao> listarMovimentacoesPorCliente(@RequestParam("cod") Long codCliente){
 		return movimentacaoRepository.listarMovimentacoesPorCliente(codCliente);
-	}*/
+	}
 }
