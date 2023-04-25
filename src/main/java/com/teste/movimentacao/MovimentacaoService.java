@@ -19,7 +19,7 @@ public class MovimentacaoService extends BaseService<Movimentacao, MovimentacaoR
 	private MovimentacaoRepository movimentacaoRepository;
 
 	public List<Movimentacao> salvarMovimentacoes(List<Movimentacao> movimentacoes) {
-		if (!movimentacoes.isEmpty()) { 
+		if (!movimentacoes.isEmpty()) {
 			return movimentacaoRepository.saveAll(movimentacoes);
 		} else {
 			throw new RuntimeException("não existem dados a serem processados!");
@@ -37,16 +37,16 @@ public class MovimentacaoService extends BaseService<Movimentacao, MovimentacaoR
 		for (MovimentacaoResumida mov : movimentacoes) {
 			mapa.put(mov.getCod().toString(), mov);
 		}
-		totalImportacao = Optional.of(movimentacoes.stream().mapToLong(p-> p.getTotalImportacao()).sum());
-		totalExportacao = Optional.of(movimentacoes.stream().mapToLong(p-> p.getTotalExportacao()).sum());
 		
+		totalImportacao = Optional.of(movimentacoes.stream().mapToLong(p -> p.getTotalImportacao()).sum());
+		totalExportacao = Optional.of(movimentacoes.stream().mapToLong(p -> p.getTotalExportacao()).sum());
+
 		if ((totalImportacao.isPresent()) && (totalExportacao.isPresent())) {
-			mapa.put("total geral Importação", totalImportacao);
-			mapa.put("total geral Exportação", totalExportacao);
+			mapa.put("total geral container Importação", totalImportacao);
+			mapa.put("total geral container Exportação", totalExportacao);
 		}
 
 		return mapa;
 	}
-	
-	
+
 }
