@@ -1,15 +1,18 @@
 package com.teste.resumo;
 
 import java.sql.Date;
-import java.util.Map;
+
+import com.teste.enums.Categoria;
+import com.teste.enums.Status;
+import com.teste.enums.TipoConteiner;
 
 public interface MovimentacaoResumida {
 	
 	Long getCod();
 	String getNome();
-	String getCategoria();
-	String getStatus();
-	String getTipo();
+	Categoria getCategoria();
+	Status getStatus();
+	TipoConteiner getTipo();
 	String getNumero();
 	String getTipom();
 	Date getDatahi();

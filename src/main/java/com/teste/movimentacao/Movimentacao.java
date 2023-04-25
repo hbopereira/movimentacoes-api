@@ -1,17 +1,18 @@
 package com.teste.movimentacao;
 
 import java.util.Date;
-import java.util.Map;
+import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.teste.base.BaseEntity;
 import com.teste.container.Conteiner;
 import com.teste.enums.TipoMovimentacao;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
